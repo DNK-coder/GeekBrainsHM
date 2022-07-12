@@ -1,8 +1,91 @@
 //Задание 1. Задача 1
 package main.java;
-import java.util.Scanner;
+
+import java.util.Arrays;
 
 public class HomeWorkApp {
+    //Задание 1
+    public static int[] changeArr(int[] array){
+        for(int i = 0; i < array.length; i++){
+            array[i] = (array[i] == 0)? 1 : 0;
+        }
+        return array;
+    }
+    //Задание 2
+    public static void createArr(int[] array, int step, int shift){
+        for(int i = 0; i < 100; i ++){
+            array[i] = shift + i * step;
+        }
+    }
+
+    //Задание 3
+    public static void modifierForArr(int[] array){
+        for(int i = 0; i < array.length; i++){
+            if(array[i] < 6){
+                array[i] *= 2;
+            }
+        }
+    }
+    //Задание 4
+    public static void createSquareArr(int size){
+        int[][] sqrArray = new int[size][size];
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                sqrArray[i][j] = (i == j || j == (size - i - 1))? 1 : (int)(Math.random()*100);
+                System.out.printf("%4d", sqrArray[i][j]);
+            }
+            System.out.println();
+        }
+    }
+    //Задание 5
+
+    public static void lenArr(int len, int initialValue){
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = initialValue;
+            System.out.print("[" + i + "]" + arr[i] + " ");
+        }
+    }
+
+    //Задание 6
+    public static int minInArray(int[] array){
+        int min = array[0];
+        for(int i = 0; i < array.length; i++){
+            if (min > array[i])
+                min = array[i];
+        }
+        return min;
+    }
+    public static int maxInArray(int[] array){
+        int max = array[0];
+        for(int i = 0; i < array.length; i++){
+            if (max < array[i])
+                max = array[i];
+        }
+        return max;
+    }
+
+
+
+    //Задание 7
+    public static boolean checkbalance(int[] array){
+        int leftSum = 0;
+        for(int i = 0; i < array.length; i++){
+            leftSum += array[i];
+            int rightSum = 0;
+            for (int j = 0; j < array.length; j++){
+                rightSum += (j > i)? array[j] : 0;
+            }
+            if(leftSum == rightSum){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Задание 8 не смог сделать
+
+
     public static void main(String[] args) {
 
         //Первая практическая работа
@@ -62,6 +145,7 @@ public class HomeWorkApp {
         }*/
 
         //Вторая практическая работа
+        /*
         method_one();
         method_two();
         method_three();
@@ -137,5 +221,55 @@ public class HomeWorkApp {
             System.out.println("Год високосный");
         } else
             System.out.println("Год не високосный");
+            */
+
+
+//Третья практическая работа
+
+
+
+
+
+
+        //Задание 1
+        int[] array01 = {1, 1, 1, 0, 0, 0, 1, 0, 1, 0};
+        System.out.println("\nЗадание 1:");
+        System.out.println(Arrays.toString(changeArr(array01)));
+
+        //Задание 2
+        int[] arr2 = new int[100];
+        System.out.println("\nЗадание 2:");
+        System.out.println("\nbefore:" + Arrays.toString(arr2));
+        createArr(arr2, 1, 1);
+        System.out.println("\nafter: " + Arrays.toString(arr2));
+
+        //Задание 3
+        int[] arrayNumbers = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        modifierForArr(arrayNumbers);
+        System.out.println("\nЗадание 3:");
+        System.out.println(Arrays.toString(arrayNumbers));
+
+        //Задание 4
+        System.out.println("\nЗадание 4:");
+        createSquareArr(5);
+
+        //Задание 5
+        System.out.println("\nЗадание 5:");
+        lenArr(5, 1); // Task 5 check
+
+        //Задание 6
+        System.out.println("\n\nЗадание 6:");
+        int[] minMaxArray = {6, 6, 8, 12, 45, 100, 145, 220, 6, 8, 99, 3, 7};
+        System.out.println(minInArray(minMaxArray));
+        System.out.println(maxInArray(minMaxArray));
+        //Задание 7
+        System.out.println("\nЗадание 7:");
+        int[] forCheckBalanceArray = {1, 2, 3, 1, 2, 3};
+        System.out.println(checkbalance(forCheckBalanceArray));
+
+        //Задание 8
+        //Не смог сделать
+
+
     }
 }
